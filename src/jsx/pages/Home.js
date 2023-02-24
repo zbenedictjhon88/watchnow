@@ -6,6 +6,7 @@ import { movieSearch } from "../../services/actions/MovieAction";
 import { clearLocalStorage, getLocalStorage } from "../../services/stores/storage";
 import CustomCard from "../components/CustomCard";
 import Loading from "../components/Loading";
+import apiConfig from "../../config/api.config";
 
 
 function Home(props) {

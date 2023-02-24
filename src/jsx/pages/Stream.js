@@ -70,44 +70,46 @@ function Stream(props) {
 
     function playQuality(data) {
         let quality = [];
-        for (var i = 0; i < data.sources.length; i++) {
-            var url = data['sources'][i]['url'];
-            if (i == 0) {
-                quality[i] = {
-                    default: true,
-                    html: 'auto',
-                    url: url
-                }
-            } else {
-                quality[i] = {
-                    html: 'Q-' + i,
-                    url: url
+        if (typeof data['sources'] != "undefined") {
+            for (var i = 0; i < data.sources.length; i++) {
+                var url = data['sources'][i]['url'];
+                if (i == 0) {
+                    quality[i] = {
+                        default: true,
+                        html: 'auto',
+                        url: url
+                    }
+                } else {
+                    quality[i] = {
+                        html: 'Q-' + i,
+                        url: url
+                    }
                 }
             }
+            setLocalStorage('quality', quality);
         }
-
-        setLocalStorage('quality', quality);
     }
 
     function playSubtitle(data) {
         let subtitle = [];
-        for (var i = 0; i < data.subtitles.length; i++) {
-            if (i == 0) {
-                subtitle[i] = {
-                    default: true,
-                    html: data.subtitles[i]['lang'],
-                    url: data.subtitles[i]['url']
-                }
-            } else {
-                subtitle[i] = {
-                    default: false,
-                    html: data.subtitles[i]['lang'],
-                    url: data.subtitles[i]['url']
+        if (typeof data['subtitles'] != "undefined") {
+            for (var i = 0; i < data.subtitles.length; i++) {
+                if (i == 0) {
+                    subtitle[i] = {
+                        default: true,
+                        html: data.subtitles[i]['lang'],
+                        url: data.subtitles[i]['url']
+                    }
+                } else {
+                    subtitle[i] = {
+                        default: false,
+                        html: data.subtitles[i]['lang'],
+                        url: data.subtitles[i]['url']
+                    }
                 }
             }
+            setLocalStorage('subtitle', subtitle);
         }
-
-        setLocalStorage('subtitle', subtitle);
     }
 
     if (isLoading) return <Loading />;
