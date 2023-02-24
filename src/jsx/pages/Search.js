@@ -43,7 +43,7 @@ function Search(props) {
                 return (
                     <CustomCard
                         key={i}
-                        url={'info/' + data.id}
+                        url={'/info/' + data.id}
                         image={data.image}
                         title={data.title}
                         type="Asian Drama"
