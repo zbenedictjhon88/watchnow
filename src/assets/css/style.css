@@ -1,0 +1,140 @@
+/* Color notes */
+/* #ff9000 main */
+/* #FBF8F4 second */
+/* #D61200 accent */
+
+/* Custom css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FBF8F4;
+}
+
+button,
+.btn-danger {
+    border: none !important;
+    color: white !important;
+    background-color: #ff9000 !important;
+}
+
+button:hover,
+.btn-danger:hover {
+    border: none !important;
+    color: white !important;
+    background-color: #D61200 !important;
+}
+
+.card {
+    margin: 14px 0px 0px 7px;
+    padding: 0;
+    width: 180px;
+    height: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 1.5px 1.5px 5px gray;
+    background-image: linear-gradient(#ff9000, #D61200);
+}
+
+.card img {
+    object-fit: cover;
+    object-position: center;
+    width: 180px;
+    height: 280px;
+    border: none;
+}
+
+.card .card-footer {
+    margin-top: -280px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+.card .card-footer span {
+    margin: 0;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-image: linear-gradient(#ff9000, #D61200);
+    padding: 15px 5px;
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+}
+
+.navbar {
+    background-color: #FBF8F4;
+}
+
+.navbar .navbar-brand {
+    font-size: 32px !important;
+    font-weight: bold;
+}
+
+.navbar .navbar-brand span {
+    background-color: #ff9000;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Added css */
+.mt-auto {
+    margin-top: 3% !important;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.loading {
+    /* bottom: 0;
+    position: absolute; */
+    margin: 17% auto;
+}
+
+.footer {
+    margin-top: 25px !important;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.footer label {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer label span {
+    background-color: #ff9000;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.info-image {
+    width: 280px;
+    height: 480px;
+    background-image: linear-gradient(#ff9000, #D61200);
+    object-fit: cover;
+    object-position: center;
+}
+
+.info-description h1 {
+    font-size: 42px;
+    margin: 20px 0px;
+    font-weight: 500;
+}
+
+.info-description p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.info-description .table {
+    margin-top: 10px;
+}
