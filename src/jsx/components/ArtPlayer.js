@@ -23,7 +23,7 @@ export default function Player({ option, getInstance, ...rest }) {
                 playbackRate: true,
                 aspectRatio: true,
                 fullscreen: true,
-                fullscreenWeb: true,
+                fullscreenWeb: false,
                 subtitleOffset: true,
                 miniProgressBar: true,
                 mutex: true,
