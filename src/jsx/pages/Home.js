@@ -26,7 +26,6 @@ function Home(props) {
 
         let data = getLocalStorage(keyword);
         if (data != null) {
-            clearLocalStorage();
             setVideo(data.results);
             setIsLoading(false);
         }

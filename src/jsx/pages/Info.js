@@ -1,16 +1,21 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { movieSearchInfo } from '../../services/actions/MovieAction';
+import { pageViewsTracking } from '../../services/analytics';
 import { clearLocalStorage, getLocalStorage } from '../../services/stores/storage';
 import Loading from '../components/Loading';
 
 function Info(props) {
 
     let { id, type } = useParams();
+    let location = useLocation();
+
     const [vidinfo, setVidInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        
+        pageViewsTracking(location);
 
         if (getLocalStorage(id + "/" + type) == null) {
             new Promise(() => {
@@ -19,7 +24,6 @@ function Info(props) {
                     setIsLoading(false);
                 })
             })
-
         }
 
         let data = getLocalStorage(id + "/" + type);

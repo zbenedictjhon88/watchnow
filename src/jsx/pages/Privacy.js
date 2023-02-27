@@ -1,4 +1,15 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { pageViewsTracking } from "../../services/analytics";
+
 function Privacy(props) {
+
+    let location = useLocation();
+
+    useEffect(() => {
+        pageViewsTracking(location);
+    }, []);
+
     return (
         <div className='container mt-auto'>
             <div className="row">

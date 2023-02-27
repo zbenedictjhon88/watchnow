@@ -6,19 +6,24 @@ import { movieSearch } from "../../services/actions/MovieAction";
 import { clearLocalStorage, getLocalStorage } from "../../services/stores/storage";
 import CustomCard from "../components/CustomCard";
 import Loading from "../components/Loading";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import NotFound from "../components/NotFound";
+import { pageViewsTracking } from "../../services/analytics";
 
 
 function Search(props) {
 
     let { id } = useParams();
+    let location = useLocation();
     const keyword = id;
 
     const [video, setVideo] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+
+        pageViewsTracking(location);
+
         if (getLocalStorage(keyword) == null) {
             new Promise(() => {
                 movieSearch(keyword).then(res => {

@@ -1,16 +1,17 @@
 import Hls from "hls.js";
 import { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { movieSearchInfo, movieStream } from "../../services/actions/MovieAction";
 import { getLocalStorage, setLocalStorage } from "../../services/stores/storage";
 import swal from "sweetalert";
 import Player from "../components/ArtPlayer";
 import { movieStreamProvider } from "../../services/providers/MovieProvider";
 import Loading from "../components/Loading";
+import { pageViewsTracking } from "../../services/analytics";
 
 function Stream(props) {
 
-    const navigate = useNavigate();
+    let location = useLocation();
     let { episodeId, id, type } = useParams();
 
     const [watch, setWatch] = useState([]);
@@ -18,6 +19,8 @@ function Stream(props) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+
+        pageViewsTracking(location);
 
         let dataInfo = getLocalStorage(id + "/" + type);
         if (dataInfo != null) {

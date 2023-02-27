@@ -1,5 +1,9 @@
 import React, { lazy, Suspense, useEffect, useState, } from "react";
 import Loading from "./jsx/components/Loading";
+import ReactGA from 'react-ga';
+import { pageViewsTracking } from "./services/analytics";
+import apiConfig from "./config/api.config";
+
 // import Index from "./jsx";
 
 const Index = lazy(() => {
@@ -10,10 +14,9 @@ const Index = lazy(() => {
 
 function App() {
 
-  const [visited, setVisited] = useState(false);
-
   useEffect(() => {
-    setVisited(true);
+    ReactGA.initialize(apiConfig.ga_tracking_id);
+    pageViewsTracking();
   }, []);
 
   return (
