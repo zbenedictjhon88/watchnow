@@ -4,26 +4,20 @@ import ReactGA from 'react-ga';
 import { pageViewsTracking } from "./services/analytics";
 import apiConfig from "./config/api.config";
 
-// import Index from "./jsx";
+import Index from "./jsx";
 
-const Index = lazy(() => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(import('./jsx')), 500);
-  });
-});
 
 function App() {
 
   useEffect(() => {
-    console.log(apiConfig.ga_tracking_id);
     ReactGA.initialize('UA-258466588-1');
     pageViewsTracking();
   }, []);
 
   return (
-    <Suspense fallback={<Loading />}>
+    <>
       <Index />
-    </Suspense>
+    </>
   );
 }
 
