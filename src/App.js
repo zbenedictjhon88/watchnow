@@ -15,7 +15,8 @@ const Index = lazy(() => {
 function App() {
 
   useEffect(() => {
-    ReactGA.initialize(apiConfig.ga_tracking_id);
+    console.log(apiConfig.ga_tracking_id);
+    ReactGA.initialize('UA-258466588-1');
     pageViewsTracking();
   }, []);
 
