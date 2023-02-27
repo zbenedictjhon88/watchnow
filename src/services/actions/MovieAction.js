@@ -1,9 +1,18 @@
 import { movieSearchInfoProvider, movieSearchProvider, movieStreamProvider } from "../providers/MovieProvider";
-import { setLocalStorage } from "../stores/storage";
+import { getLocalStorage, setLocalStorage } from "../stores/storage";
 
 export function movieSearch(value, page = 1) {
     return movieSearchProvider(value, page).then(res => {
         setLocalStorage(value, res.data);
+        return res.data;
+    }).catch(err => {
+        console.log(err);
+    });
+}
+
+export function movieSearchPage(value, page) {
+    return movieSearchProvider(value, page).then(res => {
+        setLocalStorage(value + page, res.data);
         return res.data;
     }).catch(err => {
         console.log(err);
