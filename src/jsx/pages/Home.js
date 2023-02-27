@@ -8,7 +8,6 @@ import CustomCard from "../components/CustomCard";
 import Loading from "../components/Loading";
 import apiConfig from "../../config/api.config";
 
-
 function Home(props) {
 
     const keyword = "zombie";
@@ -19,7 +18,7 @@ function Home(props) {
         if (getLocalStorage(keyword) == null) {
             new Promise(() => {
                 movieSearch(keyword).then(res => {
-                    setVideo(data.results);
+                    setVideo(res.results);
                     setIsLoading(false);
                 });
             });
@@ -27,6 +26,7 @@ function Home(props) {
 
         let data = getLocalStorage(keyword);
         if (data != null) {
+            clearLocalStorage();
             setVideo(data.results);
             setIsLoading(false);
         }
